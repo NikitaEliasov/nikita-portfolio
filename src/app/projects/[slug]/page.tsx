@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Gallery } from "@/components/Gallery";
-import { Tag } from "@/components/Tag";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { getProject, projects } from "@/data/projects";
 
@@ -60,47 +59,46 @@ export default async function ProjectPage({ params }: PageProps) {
             ← All projects
           </Link>
 
-          <div className="mt-6 grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
-            <div>
-              {project.subtitle ? (
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                  {project.subtitle}
-                </p>
-              ) : null}
-              <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight text-ink-950 sm:text-5xl">
-                {project.title}
-              </h1>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
-                {project.summary}
+          <div className="mt-6 max-w-3xl">
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.16em]">
+              <span className="text-accent">{project.kind}</span>
+              <span aria-hidden="true" className="text-zinc-300">
+                /
+              </span>
+              <span className="font-medium text-zinc-500">{project.dates}</span>
+            </p>
+
+            <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink-950 sm:text-5xl">
+              {project.title}
+            </h1>
+
+            <p className="mt-3 text-base leading-7 text-zinc-500">
+              {project.subtitle ? `${project.subtitle} · ` : ""}
+              {project.org}
+            </p>
+
+            <p className="mt-5 text-lg leading-8 text-zinc-600">
+              {project.summary}
+            </p>
+
+            {project.highlight ? (
+              <p className="mt-5 inline-block border-b border-accent/40 pb-1 text-sm font-medium text-accent">
+                {project.highlight}
               </p>
-            </div>
-
-            <dl className="grid gap-3 rounded-2xl border border-zinc-200 bg-white p-5 text-sm">
-              <div>
-                <dt className="text-xs font-medium uppercase tracking-wide text-zinc-500">
-                  Context
-                </dt>
-                <dd className="mt-0.5 text-zinc-700">{project.org}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-medium uppercase tracking-wide text-zinc-500">
-                  Dates
-                </dt>
-                <dd className="mt-0.5 text-zinc-700">{project.dates}</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
-            ))}
+            ) : null}
           </div>
         </Container>
       </section>
 
-      <Container className="py-12 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-center">
+      <Container className="py-10 sm:py-14">
+        {project.video ? (
+          <VideoEmbed
+            src={project.video.src}
+            poster={project.video.poster}
+            caption={project.video.caption}
+            title={`${project.title} video`}
+          />
+        ) : (
           <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-100">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -110,55 +108,7 @@ export default async function ProjectPage({ params }: PageProps) {
               loading="eager"
             />
           </div>
-
-          {project.metrics ? (
-            <dl className="overflow-hidden rounded-2xl border border-zinc-200 bg-white">
-              {project.metrics.map((metric, metricIndex) => {
-                const isLong = metric.value.length > 20;
-                return (
-                  <div
-                    key={metric.label}
-                    className={`flex gap-6 px-5 py-3.5 ${
-                      isLong
-                        ? "flex-col items-start gap-1"
-                        : "items-baseline justify-between"
-                    } ${metricIndex > 0 ? "border-t border-zinc-200" : ""}`}
-                  >
-                    <dt className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">
-                      {metric.label}
-                    </dt>
-                    <dd
-                      className={`font-display text-base font-semibold leading-snug text-ink-950 ${
-                        isLong ? "text-left" : "text-right"
-                      }`}
-                    >
-                      {metric.value}
-                    </dd>
-                  </div>
-                );
-              })}
-            </dl>
-          ) : (
-            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-              <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
-                Focus
-              </p>
-              <p className="mt-2 text-sm leading-6 text-zinc-600">
-                {project.tags.join(", ")}.
-              </p>
-            </div>
-          )}
-        </div>
-
-        {project.video ? (
-          <VideoEmbed
-            src={project.video.src}
-            poster={project.video.poster}
-            caption={project.video.caption}
-            title={`${project.title} video`}
-            className="mt-12"
-          />
-        ) : null}
+        )}
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[0.35fr_0.65fr] lg:gap-16">
           <div className="lg:sticky lg:top-24 lg:self-start">

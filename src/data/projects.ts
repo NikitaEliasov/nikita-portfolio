@@ -1,20 +1,19 @@
 import type { Media, Section } from "./experience";
 
-export type Metric = { label: string; value: string };
-
 export type Project = {
   slug: string;
   order: number;
   title: string;
+  kind: string;
   subtitle?: string;
   org: string;
   dates: string;
   summary: string;
+  highlight?: string;
   tags: string[];
   card: Media;
   gallery: Media[];
   sections: Section[];
-  metrics?: Metric[];
   video?: { src: string; poster?: string; caption?: string };
   extraVideo?: {
     src: string;
@@ -29,6 +28,7 @@ export const projects: Project[] = [
   {
     slug: "sfu-rover-communications",
     order: 1,
+    kind: "Club",
     title: "Communications Team Lead",
     subtitle: "SFU Polaris Rover",
     org: "SFU Satellite Rover Project · Canadian International Rover Challenge 2027",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
       {
         src: "/images/sfu-rover-communications/01-card.jpg",
         alt: "SFU Polaris rover with six wheels on sandy terrain",
-        caption: "Polaris rover during field testing.",
+        caption: "Polaris Rover",
       },
     ],
     sections: [
@@ -65,6 +65,7 @@ export const projects: Project[] = [
   {
     slug: "notion-learning-system",
     order: 2,
+    kind: "Personal",
     title: "Personal Notion Workspace and Learning System",
     org: "Personal project",
     dates: "Sep 2024 to Present",
@@ -85,12 +86,12 @@ export const projects: Project[] = [
       {
         src: "/images/notion-learning-system/02-calendar.jpg",
         alt: "Notion calendar view showing a term schedule of lectures, labs, and exams",
-        caption: "Calendar view for a term of lectures, labs, and exams.",
+        caption: "Calendar",
       },
       {
         src: "/images/notion-learning-system/03-assignments.jpg",
         alt: "Notion assignments table tracking courses, dates, and progress",
-        caption: "Assignments table with course, due date, and progress.",
+        caption: "Assignments",
       },
     ],
     sections: [
@@ -105,6 +106,7 @@ export const projects: Project[] = [
   {
     slug: "plc-bottling-plant",
     order: 3,
+    kind: "Course",
     title: "PLC Automated Bottling Plant",
     org: "Academic course project · LogixPro / RSLogix 500 simulation",
     dates: "Apr 2026 to Oct 2026",
@@ -126,27 +128,27 @@ export const projects: Project[] = [
       {
         src: "/images/plc-bottling-plant/06-ladder-logic.png",
         alt: "Main ladder logic with line run and station subroutines",
-        caption: "Main ladder (LAD 2) with line run and station subroutines.",
+        caption: "Main Ladder Logic",
       },
       {
         src: "/images/plc-bottling-plant/02-counters.png",
         alt: "Counter and HMI related logic",
-        caption: "Counters and HMI-related logic.",
+        caption: "Counters and HMI",
       },
       {
         src: "/images/plc-bottling-plant/03-user-logic.png",
         alt: "Additional user logic screenshot",
-        caption: "Additional user logic.",
+        caption: "User Logic",
       },
       {
         src: "/images/plc-bottling-plant/04-fill-sequence.png",
         alt: "Fill sequence rungs from the logic PDF",
-        caption: "Fill sequence rungs.",
+        caption: "Fill Sequence",
       },
       {
         src: "/images/plc-bottling-plant/05-sort-sequence.png",
         alt: "Sort sequence rungs from the logic PDF",
-        caption: "Sort sequence rungs.",
+        caption: "Sort Sequence",
       },
     ],
     sections: [
@@ -162,12 +164,14 @@ export const projects: Project[] = [
   {
     slug: "smart-glasses",
     order: 4,
+    kind: "Capstone",
     title: "LENZ Smart Running Glasses",
     subtitle: "Team LENZ President · Capstone project",
     org: "SFU Mechatronic Systems Engineering Capstone · sponsored by FORM Swim",
     dates: "Jan 2026 to Sep 2026",
     summary:
       "Running glasses that find your cadence, pace, and stride from head motion alone. Put them on. Go run.",
+    highlight: "Best Industry Sponsored Project",
     featured: true,
     tags: [
       "Wearables",
@@ -176,17 +180,6 @@ export const projects: Project[] = [
       "Machine learning",
       "Systems integration",
     ],
-    metrics: [
-      { label: "Wearable weight", value: "~36 g" },
-      { label: "Battery life", value: "12+ h" },
-      {
-        label: "Hardware cost",
-        value: "$110 to $120",
-      },
-      { label: "Speed error", value: "~0.16 mph avg" },
-      { label: "Step accuracy", value: "~97%" },
-      { label: "Result", value: "Best Industry Sponsored Project" },
-    ],
     card: {
       src: "/images/smart-glasses/00-card.jpg",
       alt: "LENZ running glasses with a 3D-printed sensor mount on the temple",
@@ -194,34 +187,34 @@ export const projects: Project[] = [
     video: {
       src: "/videos/lenz/lenz-ad.mp4",
       poster: "/images/smart-glasses/01-ad-poster.jpg",
-      caption: "The 54-second LENZ showcase video.",
+      caption: "LENZ Product Presentation",
     },
     gallery: [
       {
         src: "/images/smart-glasses/02-timing.png",
         alt: "LENZ web app timing screen showing lap, split, ground contact time, and flight time",
-        caption: "Timing screen: lap, split, ground contact, and flight time.",
+        caption: "Timing Screen",
       },
       {
         src: "/images/smart-glasses/03-cadence.png",
         alt: "LENZ web app workout screen showing live cadence and a coaching tip",
-        caption: "Workout screen: live cadence with a coaching tip.",
+        caption: "Workout Screen",
       },
       {
         src: "/images/smart-glasses/04-team-expo.jpg",
         alt: "Team LENZ at the Capstone Expo booth",
-        caption: "Team LENZ at the Capstone Expo.",
+        caption: "Capstone Expo",
       },
       {
         src: "/images/smart-glasses/05-award.jpg",
         alt: "Best Industry Sponsored Project award for LENZ",
-        caption: "Best Industry Sponsored Project award.",
+        caption: "Best Industry Sponsored Project",
       },
     ],
     extraVideo: {
       src: "/videos/lenz/lenz-skeleton-gait.mp4",
       poster: "/images/smart-glasses/06-skeleton-poster.jpg",
-      caption: "Skeleton tracking used to study gait.",
+      caption: "Gait Analysis",
       description:
         "Side-by-side skeleton tracking and treadmill footage used to line head motion up with each foot strike.",
     },
@@ -273,6 +266,7 @@ export const projects: Project[] = [
   {
     slug: "calligraphy-robot-arm",
     order: 5,
+    kind: "Course",
     title: "Calligraphy Robot Arm (3-DOF)",
     org: "Academic robotics project · SFU MSE429",
     dates: "Jan 2026 to Apr 2026",
@@ -294,27 +288,27 @@ export const projects: Project[] = [
       {
         src: "/images/calligraphy-robot-arm/06-assembly-full-table.jpg",
         alt: "Full arm assembly CAD render on the table workspace",
-        caption: "Full arm assembly on the table workspace.",
+        caption: "Arm Assembly",
       },
       {
         src: "/images/calligraphy-robot-arm/02-solidworks-link.jpg",
         alt: "SolidWorks link part on a workstation",
-        caption: "Link part in SolidWorks.",
+        caption: "SolidWorks Link",
       },
       {
         src: "/images/calligraphy-robot-arm/03-isometric-sketch.jpg",
         alt: "Notebook isometric sketch of the link and end effector",
-        caption: "Notebook isometric view with the end effector.",
+        caption: "Isometric Sketch",
       },
       {
         src: "/images/calligraphy-robot-arm/04-inverse-kinematics.jpg",
         alt: "Inverse kinematics solution diagram",
-        caption: "Inverse kinematics solution.",
+        caption: "Inverse Kinematics",
       },
       {
         src: "/images/calligraphy-robot-arm/05-cad-to-matlab.jpg",
         alt: "CAD geometry visualized in MATLAB",
-        caption: "CAD geometry brought into MATLAB.",
+        caption: "CAD to MATLAB",
       },
     ],
     sections: [
@@ -329,6 +323,7 @@ export const projects: Project[] = [
   {
     slug: "fan-speed-controller",
     order: 6,
+    kind: "Course",
     title: "Fan Speed Controller (8051 MCU)",
     org: "Embedded systems and electronics course project",
     dates: "Oct 2025 to Dec 2025",
@@ -350,22 +345,22 @@ export const projects: Project[] = [
       {
         src: "/images/fan-speed-controller/02-scope-debug.jpg",
         alt: "Oscilloscope probes on the running circuit",
-        caption: "Scope probes on the running circuit.",
+        caption: "Scope Debug",
       },
       {
         src: "/images/fan-speed-controller/03-wiring-detail.jpg",
         alt: "Close view of wiring and the transistor drive section",
-        caption: "Wiring and transistor drive section.",
+        caption: "Wiring Detail",
       },
       {
         src: "/images/fan-speed-controller/04-setup-top-view.jpg",
         alt: "Top view of the setup from the project report",
-        caption: "Top view of the setup.",
+        caption: "Test Setup",
       },
       {
         src: "/images/fan-speed-controller/05-wiring-closeup.jpg",
         alt: "Breadboard close-up from the project report",
-        caption: "Breadboard close-up.",
+        caption: "Breadboard",
       },
     ],
     sections: [
@@ -380,6 +375,7 @@ export const projects: Project[] = [
   {
     slug: "widget-assembly-line",
     order: 7,
+    kind: "Course",
     title: "Automated Widget Assembly Line",
     org: "SFU MSE310 Sensors and Actuators · LabVIEW",
     dates: "Sep 2025 to Dec 2025",
@@ -400,22 +396,22 @@ export const projects: Project[] = [
       {
         src: "/images/widget-assembly-line/02-labview-detail.jpg",
         alt: "Additional LabVIEW block diagram detail",
-        caption: "Additional LabVIEW block detail.",
+        caption: "LabVIEW Detail",
       },
       {
         src: "/images/widget-assembly-line/03-file-recovery.jpg",
         alt: "LabVIEW record and load file recovery loops",
-        caption: "Record and load file recovery loops.",
+        caption: "File Recovery",
       },
       {
         src: "/images/widget-assembly-line/04-report-page2.jpg",
         alt: "Report page with system context",
-        caption: "Report page with system context.",
+        caption: "System Context",
       },
       {
         src: "/images/widget-assembly-line/05-report-page3.jpg",
         alt: "Report page with control diagrams",
-        caption: "Report page with control diagrams.",
+        caption: "Control Diagrams",
       },
     ],
     sections: [
@@ -430,6 +426,7 @@ export const projects: Project[] = [
   {
     slug: "vehicle-restoration",
     order: 8,
+    kind: "Personal",
     title: "Vehicle Restoration",
     subtitle: "Ford Escape hybrid rebuild",
     org: "Personal / self-directed",
@@ -444,11 +441,6 @@ export const projects: Project[] = [
       "Bodywork",
       "Budgeting",
     ],
-    metrics: [
-      { label: "Budget", value: "$10,000 tracked" },
-      { label: "HV battery", value: "~40% vs pack replacement" },
-      { label: "Duration", value: "2+ years" },
-    ],
     card: {
       src: "/images/vehicle-restoration/01-card-undercarriage.jpg",
       alt: "Coated rear undercarriage on a lift with red calipers",
@@ -457,22 +449,22 @@ export const projects: Project[] = [
       {
         src: "/images/vehicle-restoration/02-engine-bay.jpg",
         alt: "Front of the Escape with the hood open in the shop",
-        caption: "Front of the Escape with the hood open.",
+        caption: "Engine Bay",
       },
       {
         src: "/images/vehicle-restoration/03-brake-detail.jpg",
         alt: "Rotor and red caliper detail",
-        caption: "Rotor and caliper detail.",
+        caption: "Brake Detail",
       },
       {
         src: "/images/vehicle-restoration/04-suspension-work.jpg",
         alt: "Hub and suspension work with the caliper pulled",
-        caption: "Suspension work with the caliper pulled.",
+        caption: "Suspension Work",
       },
       {
         src: "/images/vehicle-restoration/05-bumper-bodywork.jpg",
         alt: "Bumper sanded and filled for refinish",
-        caption: "Bumper sanded and filled for refinish.",
+        caption: "Bodywork",
       },
     ],
     sections: [
@@ -487,6 +479,7 @@ export const projects: Project[] = [
   {
     slug: "building-pc",
     order: 9,
+    kind: "Personal",
     title: "Building PC",
     org: "Personal / self-directed",
     dates: "May 2023 to Oct 2023",
@@ -506,7 +499,7 @@ export const projects: Project[] = [
       {
         src: "/images/building-pc/02-parts-haul.jpg",
         alt: "Parts laid out before the build",
-        caption: "Parts before the build.",
+        caption: "Parts Haul",
       },
     ],
     sections: [

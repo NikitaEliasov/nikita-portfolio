@@ -55,28 +55,29 @@ export function Gallery({
         )}
       >
         {images.map((image, index) => (
-          <button
-            key={image.src}
-            type="button"
-            onClick={() => setActive(index)}
-            className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 text-left"
-            aria-label={`Open image: ${image.alt}`}
-          >
-            <div className="aspect-[4/3] w-full overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={image.src}
-                alt={image.alt}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
+          <figure key={image.src} className="group">
+            <button
+              type="button"
+              onClick={() => setActive(index)}
+              className="relative block w-full overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 text-left"
+              aria-label={`Open image: ${image.alt}`}
+            >
+              <div className="aspect-[4/3] w-full overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+            </button>
             {image.caption ? (
-              <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 pt-10 text-sm font-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <figcaption className="mt-2 text-sm text-zinc-500">
                 {image.caption}
-              </p>
+              </figcaption>
             ) : null}
-          </button>
+          </figure>
         ))}
       </div>
 

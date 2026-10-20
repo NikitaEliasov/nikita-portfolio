@@ -48,13 +48,13 @@ export const experience: Experience[] = [
       {
         src: "/images/shield-x/02-helmet-scan.jpg",
         alt: "Helmet on a scan turntable with a live mesh on a laptop",
-        caption: "Helmet on the scan turntable with a live mesh on the laptop.",
+        caption: "Helmet Scan",
       },
       {
         src: "/images/shield-x/03-helmet-scan-prep.jpg",
         alt: "Primed helmet with positioning targets for 3D digitizing",
         caption:
-          "Primed helmet with positioning targets, ready for 3D digitizing.",
+          "Scan Preparation",
       },
     ],
     sections: [
@@ -91,12 +91,12 @@ export const experience: Experience[] = [
       {
         src: "/images/greenlight/02-team-floor.jpg",
         alt: "Team photo in front of a Greenlight test station on the shop floor",
-        caption: "Team photo on the shop floor beside a test station.",
+        caption: "Shop Floor",
       },
       {
         src: "/images/greenlight/03-certificate.jpg",
         alt: "Commissioning Support Certificate, 7 November 2024",
-        caption: "Commissioning Support and Station Operation certificate.",
+        caption: "Training Certificate",
       },
     ],
     sections: [
