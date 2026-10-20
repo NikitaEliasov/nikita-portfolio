@@ -49,8 +49,8 @@ export function Gallery({
     <>
       <div
         className={cn(
-          "grid gap-4 sm:grid-cols-2",
-          images.length === 1 && "sm:grid-cols-1",
+          "grid gap-4",
+          images.length === 1 ? "grid-cols-1" : "sm:grid-cols-2",
           className,
         )}
       >

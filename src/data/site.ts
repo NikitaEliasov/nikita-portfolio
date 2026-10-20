@@ -9,15 +9,17 @@ export const site = {
   education: {
     degree: "B.A.Sc. Mechatronic Systems Engineering",
     school: "Simon Fraser University",
+    location: "Surrey, BC",
     dates: "Sep 2022 to Dec 2026",
   },
   intro:
     "Mechatronics student working between hardware and software: lab testing, commissioning, wearables, PLCs, and the messy middle where drawings, sensors, and code have to agree.",
   nav: [
-    { href: "/", label: "Home" },
-    { href: "/projects/", label: "Projects" },
-    { href: "/experience/", label: "Experience" },
-    { href: "/about/", label: "About" },
+    { href: "/#about", label: "About" },
+    { href: "/#experience", label: "Experience" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/#education", label: "Education" },
+    { href: "/#contact", label: "Contact" },
   ],
 } as const;
 

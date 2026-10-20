@@ -10,7 +10,7 @@ export function ProjectCard({
   index?: number;
 }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-xl hover:shadow-zinc-200/60">
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-paper transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-xl hover:shadow-zinc-200/60">
       <Link
         href={`/projects/${project.slug}/`}
         className="relative block aspect-[16/10] overflow-hidden bg-zinc-100"
@@ -22,7 +22,7 @@ export function ProjectCard({
           loading={index < 2 ? "eager" : "lazy"}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-700 shadow-sm">
+        <span className="absolute left-4 top-4 rounded-full bg-paper px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-700 shadow-sm">
           {project.dates}
         </span>
       </Link>

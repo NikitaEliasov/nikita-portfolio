@@ -13,23 +13,32 @@ npm run build      # static export to ./out
 npm run preview    # serve the built ./out folder
 ```
 
+## Site structure
+
+The home page is one long page with anchor navigation for About, Experience,
+Projects, Education, and Contact. Project cards open dedicated case-study
+pages. Experience cards open dedicated role pages.
+
+- `src/app/page.tsx` home, including all five sections
+- `src/app/projects/[slug]/page.tsx` project case study
+- `src/app/experience/[slug]/page.tsx` experience detail
+- `src/app/projects/page.tsx`, `src/app/experience/page.tsx`, and
+  `src/app/about/page.tsx` redirect old links to the home anchors
+
 ## Where content lives
 
-All copy and project metadata is in `src/data/`:
+All copy and metadata is in `src/data/`:
 
 | File | Purpose |
 | --- | --- |
 | `src/data/site.ts` | Name, role, contact links, education, About copy |
-| `src/data/experience.ts` | Work terms (Shield-X, Greenlight) |
-| `src/data/projects.ts` | Projects, card images, galleries, metrics, videos |
+| `src/data/experience.ts` | Work terms and their story sections |
+| `src/data/projects.ts` | Projects, summaries, story sections, media, videos |
 
-Pages are thin wrappers around that data:
-
-- `src/app/page.tsx` home
-- `src/app/projects/page.tsx` project index
-- `src/app/projects/[slug]/page.tsx` project detail
-- `src/app/experience/page.tsx` experience
-- `src/app/about/page.tsx` about
+Each project has a one-line `summary` for its card and a longer
+`shortVersion` for the top of its page. Media is attached to the story section
+it supports with `sections[].media` or `sections[].video`. A project-level
+`video` is used as the lead media instead of the card image.
 
 ## Images and video
 
@@ -57,7 +66,7 @@ poster image.
 
 Import the repo, keep the default Next.js preset, and deploy. No environment
 variables are required to build. Set `NEXT_PUBLIC_SITE_URL` to the final domain
-so social preview images resolve correctly.
+so social preview images and the sitemap resolve correctly.
 
 ### GitHub Pages / any static host
 
@@ -73,4 +82,6 @@ This repo is intended to be public. It contains only:
 - email and LinkedIn (no phone number)
 
 Do not add `documents/`, rejected images, `.DS_Store`, or any NDA material to
-this repo. The full content library is backed up separately in a private repo.
+this repo. Do not publish identifiable people, certificates, or licence plates
+without consent. The full content library is backed up separately in a private
+repo.

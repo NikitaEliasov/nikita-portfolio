@@ -3,16 +3,29 @@
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-space), var(--font-inter), ui-sans-serif,
-    system-ui, sans-serif;
+  --font-display: var(--font-serif), Georgia, "Times New Roman", serif;
 
-  --color-ink-950: #0a0e16;
-  --color-ink-900: #111827;
-  --color-ink-800: #1f2937;
+  --color-ink-950: #1e1d19;
+  --color-ink-900: #2a2823;
+  --color-ink-800: #3a372f;
 
-  --color-accent: #2f6df6;
-  --color-accent-strong: #1d4ed8;
-  --color-accent-soft: #eef3ff;
+  --color-cream: #f6f2e9;
+  --color-paper: #fbf8f1;
+
+  --color-accent: #5c6b4f;
+  --color-accent-strong: #47543d;
+  --color-accent-soft: #e9ece1;
+
+  --color-zinc-50: #f7f3ea;
+  --color-zinc-100: #f0ebe0;
+  --color-zinc-200: #e1dbcd;
+  --color-zinc-300: #cec6b6;
+  --color-zinc-400: #a69e8f;
+  --color-zinc-500: #7c7467;
+  --color-zinc-600: #625b50;
+  --color-zinc-700: #4d473e;
+  --color-zinc-800: #38342d;
+  --color-zinc-900: #27241f;
 }
 
 html {
@@ -21,15 +34,15 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: #27272a;
+  background-color: var(--color-cream);
+  color: var(--color-ink-800);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background-color: #c7d8ff;
-  color: #0a0e16;
+  background-color: #d9dfcb;
+  color: var(--color-ink-950);
 }
 
 /* Nicer focus rings for keyboard users only. */

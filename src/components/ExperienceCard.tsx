@@ -4,8 +4,8 @@ import { Tag } from "@/components/Tag";
 
 export function ExperienceCard({ item }: { item: Experience }) {
   return (
-    <article className="group grid gap-6 rounded-3xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:border-zinc-300 hover:shadow-lg hover:shadow-zinc-200/60 sm:grid-cols-[10rem_1fr] sm:p-8">
-      <div className="flex h-24 w-40 items-center justify-center overflow-hidden rounded-2xl border border-zinc-100 bg-white p-4">
+    <article className="group grid gap-6 rounded-3xl border border-zinc-200 bg-paper p-6 transition-all duration-300 hover:border-zinc-300 hover:shadow-lg hover:shadow-zinc-200/60 sm:grid-cols-[10rem_1fr] sm:p-8">
+      <div className="flex h-24 w-40 items-center justify-center overflow-hidden rounded-2xl border border-zinc-100 bg-paper p-4">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={item.card.src}
@@ -19,7 +19,7 @@ export function ExperienceCard({ item }: { item: Experience }) {
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h3 className="font-display text-xl font-semibold tracking-tight text-ink-950">
             <Link
-              href={`/experience/#${item.slug}`}
+              href={`/experience/${item.slug}/`}
               className="transition-colors hover:text-accent"
             >
               {item.title}
@@ -36,6 +36,12 @@ export function ExperienceCard({ item }: { item: Experience }) {
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
+        <Link
+          href={`/experience/${item.slug}/`}
+          className="mt-5 inline-flex text-sm font-semibold text-accent transition-colors hover:text-accent-strong"
+        >
+          Read more →
+        </Link>
       </div>
     </article>
   );
