@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Gallery } from "@/components/Gallery";
 import { getExperience, experience } from "@/data/experience";
+import { cn } from "@/lib/cn";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -51,11 +52,18 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
           </Link>
 
           <div className="mt-6 max-w-3xl">
-            <div className="flex h-14 w-28 items-center justify-center overflow-hidden rounded-lg border border-zinc-200 bg-white p-2">
+            <div
+              className={cn(
+                "flex h-14 w-40 items-center justify-center overflow-hidden rounded-lg border p-2",
+                item.logoTone === "dark"
+                  ? "border-ink-900 bg-ink-950"
+                  : "border-zinc-200 bg-white",
+              )}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={item.card.src}
-                alt={item.card.alt}
+                src={item.logo.src}
+                alt={item.logo.alt}
                 className="h-full w-full object-contain"
               />
             </div>

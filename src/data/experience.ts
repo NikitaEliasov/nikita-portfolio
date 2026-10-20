@@ -20,7 +20,9 @@ export type Experience = {
   dates: string;
   summary: string;
   tags: string[];
-  card: Media;
+  logo: Media;
+  logoTone: "dark" | "light";
+  photo: Media;
   sections: Section[];
 };
 
@@ -41,9 +43,14 @@ export const experience: Experience[] = [
       "Impact testing",
       "Research",
     ],
-    card: {
-      src: "/images/shield-x/01-logo.png",
+    logo: {
+      src: "/images/shield-x/01-logo-card.png",
       alt: "Shield-X Technologies logo",
+    },
+    logoTone: "dark",
+    photo: {
+      src: "/images/shield-x/02-helmet-scan.jpg",
+      alt: "Helmet on a scan turntable with a live mesh on a laptop",
     },
     sections: [
       {
@@ -98,9 +105,14 @@ export const experience: Experience[] = [
       "Power Query",
       "SAP",
     ],
-    card: {
-      src: "/images/greenlight/01-logo.png",
+    logo: {
+      src: "/images/greenlight/01-logo-card.png",
       alt: "Greenlight Innovation logo",
+    },
+    logoTone: "light",
+    photo: {
+      src: "/images/greenlight/02-team-floor.jpg",
+      alt: "Greenlight team on the shop floor beside a test station",
     },
     sections: [
       {
