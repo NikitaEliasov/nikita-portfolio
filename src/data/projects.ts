@@ -16,7 +16,12 @@ export type Project = {
   sections: Section[];
   metrics?: Metric[];
   video?: { src: string; poster?: string; caption?: string };
-  extraVideo?: { src: string; poster?: string; caption?: string };
+  extraVideo?: {
+    src: string;
+    poster?: string;
+    caption?: string;
+    description?: string;
+  };
   featured?: boolean;
 };
 
@@ -188,15 +193,10 @@ export const projects: Project[] = [
     },
     video: {
       src: "/videos/lenz/lenz-ad.mp4",
-      poster: "/images/smart-glasses/01-hero-glasses.jpg",
-      caption: "LENZ showcase video.",
+      poster: "/images/smart-glasses/01-ad-poster.jpg",
+      caption: "The 54-second LENZ showcase video.",
     },
     gallery: [
-      {
-        src: "/images/smart-glasses/01-hero-glasses.jpg",
-        alt: "LENZ running glasses with the black IMU mount on the temple",
-        caption: "Real glasses with the 3D-printed IMU mount.",
-      },
       {
         src: "/images/smart-glasses/02-timing.png",
         alt: "LENZ web app timing screen showing lap, split, ground contact time, and flight time",
@@ -222,6 +222,8 @@ export const projects: Project[] = [
       src: "/videos/lenz/lenz-skeleton-gait.mp4",
       poster: "/images/smart-glasses/06-skeleton-poster.jpg",
       caption: "Skeleton tracking used to study gait.",
+      description:
+        "Side-by-side skeleton tracking and treadmill footage used to line head motion up with each foot strike.",
     },
     sections: [
       {

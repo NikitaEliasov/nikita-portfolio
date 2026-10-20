@@ -100,7 +100,7 @@ export default async function ProjectPage({ params }: PageProps) {
       </section>
 
       <Container className="py-12 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-center">
           <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-100">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -112,20 +112,31 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
 
           {project.metrics ? (
-            <dl className="grid grid-cols-2 gap-3">
-              {project.metrics.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="rounded-2xl border border-zinc-200 bg-white p-4"
-                >
-                  <dt className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">
-                    {metric.label}
-                  </dt>
-                  <dd className="mt-1 font-display text-lg font-semibold text-ink-950">
-                    {metric.value}
-                  </dd>
-                </div>
-              ))}
+            <dl className="overflow-hidden rounded-2xl border border-zinc-200 bg-white">
+              {project.metrics.map((metric, metricIndex) => {
+                const isLong = metric.value.length > 20;
+                return (
+                  <div
+                    key={metric.label}
+                    className={`flex gap-6 px-5 py-3.5 ${
+                      isLong
+                        ? "flex-col items-start gap-1"
+                        : "items-baseline justify-between"
+                    } ${metricIndex > 0 ? "border-t border-zinc-200" : ""}`}
+                  >
+                    <dt className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">
+                      {metric.label}
+                    </dt>
+                    <dd
+                      className={`font-display text-base font-semibold leading-snug text-ink-950 ${
+                        isLong ? "text-left" : "text-right"
+                      }`}
+                    >
+                      {metric.value}
+                    </dd>
+                  </div>
+                );
+              })}
             </dl>
           ) : (
             <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
@@ -179,10 +190,17 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
 
         {project.extraVideo ? (
-          <div className="mt-12">
-            <h2 className="mb-4 font-display text-xl font-semibold tracking-tight text-ink-950">
-              More from the project
-            </h2>
+          <div className="mt-14 grid gap-6 lg:grid-cols-[0.35fr_0.65fr] lg:items-start lg:gap-16">
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <h2 className="font-display text-2xl font-semibold tracking-tight text-ink-950">
+                Process footage
+              </h2>
+              {project.extraVideo.description ? (
+                <p className="mt-2 text-sm leading-6 text-zinc-500">
+                  {project.extraVideo.description}
+                </p>
+              ) : null}
+            </div>
             <VideoEmbed
               src={project.extraVideo.src}
               poster={project.extraVideo.poster}
