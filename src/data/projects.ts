@@ -20,7 +20,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "sfu-rover-communications",
-    order: 1,
+    order: 3,
     kind: "Club",
     title: "Communications Team Lead",
     subtitle: "SFU Polaris Rover",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
   },
   {
     slug: "notion-learning-system",
-    order: 2,
+    order: 5,
     kind: "Personal",
     title: "Personal Notion Workspace and Learning System",
     org: "Personal project",
@@ -104,11 +104,11 @@ export const projects: Project[] = [
   },
   {
     slug: "plc-bottling-plant",
-    order: 3,
+    order: 4,
     kind: "Course",
     title: "PLC Automated Bottling Plant",
     org: "Academic course project · LogixPro / RSLogix 500 simulation",
-    dates: "Apr 2026 to Oct 2026",
+    dates: "Apr 2026 to Aug 2026",
     summary:
       "Ladder logic for a simulated bottling line with conveyors, sensors, fill and cap stations, and scrap routing that still behaves when something goes wrong.",
     shortVersion:
@@ -178,7 +178,7 @@ export const projects: Project[] = [
   },
   {
     slug: "smart-glasses",
-    order: 4,
+    order: 1,
     kind: "Capstone",
     title: "LENZ Smart Running Glasses",
     subtitle: "Team LENZ President",
@@ -294,7 +294,7 @@ export const projects: Project[] = [
   },
   {
     slug: "calligraphy-robot-arm",
-    order: 5,
+    order: 6,
     kind: "Course",
     title: "Calligraphy Robot Arm (3-DOF)",
     org: "Academic robotics project · SFU MSE429",
@@ -369,7 +369,7 @@ export const projects: Project[] = [
   },
   {
     slug: "fan-speed-controller",
-    order: 6,
+    order: 7,
     kind: "Course",
     title: "Fan Speed Controller (8051 MCU)",
     org: "Embedded systems and electronics course project",
@@ -432,7 +432,7 @@ export const projects: Project[] = [
   },
   {
     slug: "widget-assembly-line",
-    order: 7,
+    order: 8,
     kind: "Course",
     title: "Automated Widget Assembly Line",
     org: "SFU MSE310 Sensors and Actuators · LabVIEW",
@@ -501,7 +501,7 @@ export const projects: Project[] = [
   },
   {
     slug: "vehicle-restoration",
-    order: 8,
+    order: 2,
     kind: "Personal",
     title: "Vehicle Restoration",
     subtitle: "Ford Escape hybrid rebuild",
@@ -610,6 +610,9 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+// Keep the home grid and the previous/next links in the same order.
+projects.sort((a, b) => a.order - b.order);
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
