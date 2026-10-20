@@ -49,12 +49,16 @@ echo "Preparing media from $LIB"
 
 # Experience
 img "$LIB/Experience/01-Shield-X-HIP-Lab/photos/selected/01-logo.png" "$OUT/images/shield-x/01-logo.png"
+img "$LIB/Experience/01-Shield-X-HIP-Lab/photos/selected/01-logo-light.png" "$OUT/images/shield-x/01-logo-light.png"
 img "$LIB/Experience/01-Shield-X-HIP-Lab/photos/selected/02-helmet-scan.jpg" "$OUT/images/shield-x/02-helmet-scan.jpg"
 img "$LIB/Experience/01-Shield-X-HIP-Lab/photos/selected/03-helmet-scan-prep.jpg" "$OUT/images/shield-x/03-helmet-scan-prep.jpg"
+img "$LIB/Experience/01-Shield-X-HIP-Lab/photos/selected/04-helmets.jpg" "$OUT/images/shield-x/04-helmets.jpg"
 
 img "$LIB/Experience/02-Greenlight-Innovation/photos/selected/01-logo.png" "$OUT/images/greenlight/01-logo.png"
+img "$LIB/Experience/02-Greenlight-Innovation/photos/selected/01-logo-card.png" "$OUT/images/greenlight/01-logo-card.png"
 img "$LIB/Experience/02-Greenlight-Innovation/photos/selected/02-team-floor.jpg" "$OUT/images/greenlight/02-team-floor.jpg"
 img "$LIB/Experience/02-Greenlight-Innovation/photos/selected/03-certificate.jpg" "$OUT/images/greenlight/03-certificate.jpg"
+img "$LIB/Experience/02-Greenlight-Innovation/photos/selected/04-piping.jpg" "$OUT/images/greenlight/04-piping.jpg"
 
 # Projects
 img "$LIB/Projects/01-SFU-Rover-Communications/photos/selected/01-card.jpg" "$OUT/images/sfu-rover-communications/01-card.jpg"

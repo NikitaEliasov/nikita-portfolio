@@ -44,13 +44,13 @@ export const experience: Experience[] = [
       "Research",
     ],
     logo: {
-      src: "/images/shield-x/01-logo-card.png",
+      src: "/images/shield-x/01-logo-light.png",
       alt: "Shield-X Technologies logo",
     },
-    logoTone: "dark",
+    logoTone: "light",
     photo: {
-      src: "/images/shield-x/02-helmet-scan.jpg",
-      alt: "Helmet on a scan turntable with a live mesh on a laptop",
+      src: "/images/shield-x/04-helmets.jpg",
+      alt: "A collection of bike helmets on the floor of the Shield-X lab",
     },
     sections: [
       {
@@ -60,9 +60,9 @@ export const experience: Experience[] = [
         ],
         media: [
           {
-            src: "/images/shield-x/02-helmet-scan.jpg",
-            alt: "Helmet on a scan turntable with a live mesh on a laptop",
-            caption: "Helmet Scan",
+            src: "/images/shield-x/04-helmets.jpg",
+            alt: "A collection of bike helmets on the floor of the Shield-X lab",
+            caption: "Helmet Collection",
           },
         ],
       },
@@ -73,6 +73,11 @@ export const experience: Experience[] = [
           "After that I redesigned the LabVIEW speed program so the kinematic calculation for helmet impact speed matched what we were actually measuring.",
         ],
         media: [
+          {
+            src: "/images/shield-x/02-helmet-scan.jpg",
+            alt: "Helmet on a scan turntable with a live mesh on a laptop",
+            caption: "Helmet Scan",
+          },
           {
             src: "/images/shield-x/03-helmet-scan-prep.jpg",
             alt: "Primed helmet with positioning targets for 3D digitizing",
@@ -111,8 +116,8 @@ export const experience: Experience[] = [
     },
     logoTone: "light",
     photo: {
-      src: "/images/greenlight/02-team-floor.jpg",
-      alt: "Greenlight team on the shop floor beside a test station",
+      src: "/images/greenlight/04-piping.jpg",
+      alt: "Stainless tubing, fittings, and a pressure regulator inside a Greenlight test station",
     },
     sections: [
       {
@@ -133,6 +138,13 @@ export const experience: Experience[] = [
         paragraphs: [
           "I helped coordinate production, shipment, and commissioning support across 23 stations, tracking engineering changes, parts, and Factory Acceptance Tests. When stations failed sensors or actuators, I tested panels with a DMM, worked remotely with onsite technicians to isolate bad parts, and pushed purchase orders so repairs did not stall on site.",
           "I also read P&IDs, electrical drawings, and BOMs to build repair plans for high-pressure and high-temperature systems.",
+        ],
+        media: [
+          {
+            src: "/images/greenlight/04-piping.jpg",
+            alt: "Stainless tubing, fittings, and a pressure regulator inside a Greenlight test station",
+            caption: "Station Internals",
+          },
         ],
       },
       {
